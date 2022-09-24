@@ -1,14 +1,18 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success">New Recipe</button>
+    <!-- <button class="btn btn-success" [routerLink]="['new']">New Recipe</button> -->
+    <!-- Above way is also corrent, they both are the ways to change route in angular -->
+    <!-- we can also change route by [routerLink] and also by method imp in onNewRecipe -->
+    <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
   </div>
 </div>
 <hr />
 <div class="row">
   <div class="col-xs-12">
     <app-recipe-item
-      *ngFor="let recipeElement of recipes"
+      *ngFor="let recipeElement of recipes; let i = index"
       [recipe]="recipeElement"
+      [index]="i"
     ></app-recipe-item>
   </div>
 </div>
